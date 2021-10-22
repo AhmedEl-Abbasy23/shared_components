@@ -5,11 +5,13 @@ import 'package:reusable_components/responsive.dart';
 import 'package:reusable_components/styles.dart';
 
 import 'bloc_observer.dart';
+import 'cache_helper.dart';
 import 'localization.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await MyLocalization.localizationSetup();
+  await CacheHelper.init();
   Bloc.observer = MyBlocObserver();
   runApp(LocalizedApp(child: const MainApp()));
 }
